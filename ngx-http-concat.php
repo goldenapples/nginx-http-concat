@@ -23,7 +23,9 @@ $concat_types = array(
 
 /* Constants */
 // By default determine the document root from this scripts path in the plugins dir (you can hardcode this define)
-define( 'CONCAT_FILES_ROOT', substr( dirname( __DIR__ ), 0, strpos( dirname( __DIR__ ), '/wp-content' ) ) );
+if ( ! defined( 'CONCAT_FILES_ROOT' ) ) {
+    define( 'CONCAT_FILES_ROOT', substr( dirname( __DIR__ ), 0, strpos( dirname( __DIR__ ), '/wp-content' ) ) );
+}
 
 function concat_http_status_exit( $status ) {
 	switch ( $status ) {
